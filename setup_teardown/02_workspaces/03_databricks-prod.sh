@@ -1,4 +1,5 @@
 # 03_databricks-prod.sh
+# creates the prod workspace and associates an az login profile for it (prod)
 
 # Define variables for the workspace
 SUBSCRIPTION="DATABRICKS-PERSONAL"
@@ -37,4 +38,4 @@ echo "Workspace URL: $WORKSPACE_URL"
 
 databricks auth login --host "$WORKSPACE_URL" --profile "$PROFILE"
 
-echo "finished"
+echo "Finished creating the prod databricks workspace."

@@ -1,4 +1,6 @@
 # storage-account.sh
+# creates the and permissions the unity catalog metastore storage account using a databricks access connector to be used by the workspace for each environment (dev, test and prod). 
+# integration into the unity catalog metastore will occur after the first databricks workspace (dev) is created.
 
 # Define variables for the workspace
 export SUBSCRIPTION="DATABRICKS-PERSONAL"
@@ -59,4 +61,4 @@ az role assignment create \
   --role "Storage Blob Data Contributor" \
   --scope "$STORAGE_ACCOUNT_ID"  
 
-echo "Finished"
+echo "Finished creating and permissioning the unity catalog metastore storage infrastructure. "

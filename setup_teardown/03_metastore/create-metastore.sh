@@ -1,4 +1,6 @@
 # create-metastore.sh
+# creates the (unity catalog) metastore, associates the dev workspace to it, 
+# and creates a file credential and external location to be shared later my MANAGED catalogs for the workspace for each environment. 
 
 # Define variables for the workspace
 export SUBSCRIPTION="DATABRICKS-PERSONAL"
@@ -23,11 +25,6 @@ echo "Now creating metastore: $METASTORE_NAME"
 export STORAGE_ROOT="abfss://$CONTAINER@$STORAGEACCOUNT.dfs.core.windows.net/$DIRECTORY/"
 echo "Storage root: $STORAGE_ROOT"
 
-# databricks metastores create --json "{
-#   \"name\": \"$METASTORE_NAME\", 
-#   \"region\": \"$LOCATION\", 
-#   \"storage_root\": \"$STORAGE_ROOT\" }"
-
 databricks metastores create --json "{
   \"name\": \"$METASTORE_NAME\", 
   \"region\": \"$LOCATION\"}"
@@ -40,8 +37,6 @@ echo "Workspace id: $WORKSPACE_ID"
 
 export METASTORE_ID=$(databricks metastores list --output json | jq -r '.[0].metastore_id')
 echo "Metastore id: $METASTORE_ID"
-
-# databricks metastores update "$METASTORE_ID" --storage-root-credential-id "$ACCESS_CONNECTOR_ID"
 
 databricks metastores assign $WORKSPACE_ID $METASTORE_ID $DEFAULT_CATALOG_NAME --profile DEFAULT
 
@@ -67,4 +62,4 @@ sleep 10
 echo "Now creating the external location"
 databricks external-locations create "$EXTERNAL_LOCATION_NAME" "$STORAGE_ROOT" "$CREDENTIAL_NAME" --profile DEFAULT
 
-echo "Finished"
+echo "Finished creating the metastore."

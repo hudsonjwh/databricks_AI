@@ -1,4 +1,5 @@
 # 01_catalog-dev.sh
+# creates a dev catalog for the metastore
 
 # Define variables
 export STORAGEACCOUNT="hudsonjwhdbrixmetastore"
@@ -13,4 +14,4 @@ echo "Storage root path for the $CATALOG_NAME catalog: $STORAGE_ROOT"
 # create the catalog  
 databricks catalogs create $CATALOG_NAME --storage-root "$STORAGE_ROOT" --profile $PROFILE
 
-echo "Finished ..."
+echo "Finished creating the dev catalog."

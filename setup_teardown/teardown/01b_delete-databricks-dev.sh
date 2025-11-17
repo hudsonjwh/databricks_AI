@@ -1,5 +1,7 @@
 # delete databricks dev
 
-./setup_teardown/05_metastore_catalogs/teardown/delete-catalog-dev.sh
+./04_metastore_catalogs/teardown/delete-catalog-dev.sh
 
-./setup_teardown/02_workspaces/teardown/delete-databricks-dev.sh
+./02_workspaces/teardown/delete-databricks-dev.sh
+
+echo "Finished deleting databricks dev."

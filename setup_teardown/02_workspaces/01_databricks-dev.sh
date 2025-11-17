@@ -1,4 +1,5 @@
 # 01_databricks-dev.sh
+# creates the dev workspace and associates an az login profile for it (DEFAULT)
 
 # Define variables for the workspace
 export SUBSCRIPTION="DATABRICKS-PERSONAL"
@@ -37,4 +38,4 @@ echo "Workspace URL: $WORKSPACE_URL"
 
 databricks auth login --host "$WORKSPACE_URL" --profile "$PROFILE"
 
-echo "finished"
+echo "Finished creating the dev databricks workspace."
