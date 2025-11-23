@@ -4,6 +4,6 @@
 ./02_workspaces/01_databricks-dev.sh
 ./03_metastore/create-metastore.sh
 ./04_metastore_catalogs/01_catalog-dev.sh
-./05_clusters/01_create-cluster-dev.
+./05_clusters/01_create-cluster-dev.sh
 
 echo "Finished creating all dev environment assets."
