@@ -1,0 +1,19 @@
+# This is a Databricks asset bundle definition for databricks_AI.
+# The Databricks extension requires databricks.yml configuration file.
+# See https://docs.databricks.com/dev-tools/bundles/index.html for documentation.
+
+bundle:
+  name: databricks_AI
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://adb-4292728582357148.8.azuredatabricks.net
+
+  ## Optionally, there could be 'staging' or 'prod' targets here.
+  #
+  # prod:
+  #   workspace:
+  #     host: https://adb-4292728582357148.8.azuredatabricks.net
